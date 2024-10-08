@@ -34,15 +34,15 @@ The email body is scanned for malicious URLs or potentially dangerous code (like
 
   
 ## Project Structure
-├── car.jpg             # Image file to be attached to the email
+├── `car.jpg`            # Image file to be attached to the email
 
-├── credentials.json     # OAuth2 credentials file
+├── `credentials.json`     # OAuth2 credentials file
 
-├── message.txt          # Text file containing the email body
+├── `message.txt`          # Text file containing the email body
 
-├── mailing_client.py     # Main script for the mailing client
+├── `mailing_client.py`    # Main script for the mailing client
 
-└── token.json           # Token file to store user credentials
+└── `token.json`           # Token file to store user credentials
 
 ## Code Explanation
 
