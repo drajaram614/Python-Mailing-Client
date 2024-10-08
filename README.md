@@ -105,7 +105,7 @@ The email body is scanned for malicious URLs or potentially dangerous code (like
 
 ![Received Email](images/received_email_screenshot1.png)
 
-![Sender and reciever]((images/received_email_screenshot2.png))  
+![Sender and reciever](images/received_email_screenshot2.png)  
 
 ## Skills
 
