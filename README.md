@@ -44,7 +44,7 @@ The email body is scanned for malicious URLs or potentially dangerous code (like
 
 └── token.json           # Token file to store user credentials
 
-##Code Explanation
+## Code Explanation
 
 1. `authenticate_gmail()`
 
@@ -97,5 +97,9 @@ The email body is scanned for malicious URLs or potentially dangerous code (like
    - Validates both the **sender's** and **recipient’s** email addresses.
    - Sends the email if all checks pass and the message creation is successful.
 
-   **Cybersecurity Consideration**: **Error handling** captures and logs any issues during the sending process, providing detailed logs for troubleshooting.
+   **Cybersecurity Consideration**:
+   - **Error handling**: captures and logs any issues during the sending process, providing detailed logs for troubleshooting.
 
+## Skills
+
+**Skills** gained from this project include `Python programming`, `OAuth2 authentication`, `Gmail API integration`, `cybersecurity practices` (`error handling`, `logging`, `input validation`, `HTML sanitization`, `content filtering`), and `networking protocols` for secure email communication.
