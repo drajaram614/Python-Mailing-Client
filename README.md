@@ -10,14 +10,19 @@ This project is a Python-based mailing client that utilizes the Gmail API for se
 - **Email Composition**: Read email body from a text file.
 - **File Attachment**: Attach files (e.g., `images`) to the email.
 - **Input Validation**:
+
 Email addresses are validated using regular expressions to ensure they conform to standard email formats, reducing the risk of processing `malicious` or `invalid input`.
 - **HTML Sanitization**:
+
 If the email body contains HTML content, it is sanitized using the `bleach` library. This ensures that only allowed tags (like `<b>`, `<i>`, and `<a>`) are included, preventing Cross-Site Scripting (XSS) attacks.
 - **Error Handling**:
+
 Throughout the code, try-except blocks capture and handle errors, ensuring that issues (e.g., `missing files`, `invalid credentials`) do not crash the program. All errors are logged for analysis, helping to identify potential problems in the application flow.
 - **Logging**:
+
 Logs are maintained for every action taken by the program (such as `authentication`, `email sending`, `errors`, etc.), providing a detailed trace of the client’s activities. This is essential for auditing, troubleshooting, and detecting abnormal behaviors.
 - **Content Filtering**:
+
 The email body is scanned for malicious URLs or potentially dangerous code (like `exec`, `eval`, `os.system`) using regex patterns. This helps block malicious content from being sent through the client, mitigating the risk of `phishing` or `malicious code injection`.
 
 ## Prerequisites
