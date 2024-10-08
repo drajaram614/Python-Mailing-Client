@@ -101,11 +101,11 @@ The email body is scanned for malicious URLs or potentially dangerous code (like
    - **Error handling**: captures and logs any issues during the sending process, providing detailed logs for troubleshooting.
 
 
-![OAuth Screen](images/oauth_screenshot.png)  
+![OAuth Screen](Python-Mail-Client/images/oauth_screenshot.png)  
 
-![Received Email](images/received_email_screenshot1.png)
+![Received Email](Python-Mail-Client/images/received_email_screenshot1.png)
 
-![Sender and reciever](images/received_email_screenshot2.png)  
+![Sender and reciever](Python-Mail-Client/images/received_email_screenshot2.png)  
 
 ## Skills
 
