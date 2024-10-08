@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a Python-based mailing client that utilizes the Gmail API for sending emails with attachments. It employs OAuth2 for secure authentication, allowing users to send emails programmatically from their Gmail accounts. The client can read email content from a text file and attach images or other files to the email.
+This project is a Python-based mailing client that utilizes OAuth2 authentication to securely interact with the Gmail API for sending emails with attachments. It reads email content from a text file, attaches images or other files, and ensures safe communication by implementing several cybersecurity best practices, such as error handling, logging, input validation, HTML sanitization, and content filtering. These features make the application secure, resilient against potential vulnerabilities, and capable of programmatically sending emails from Gmail accounts.
 
 ## Features
 
@@ -27,17 +27,75 @@ The email body is scanned for malicious URLs or potentially dangerous code (like
 
 ## Prerequisites
 
-Before running this project, ensure you have the following:
-
 - Python 3.x installed.
 - Google Cloud Project with Gmail API enabled.
 - OAuth2 credentials downloaded in `credentials.json`.
-- Required Python packages for google api, google auth
+- Required Python packages for google api, google auth, bleach
 
   
 ## Project Structure
 ├── car.jpg             # Image file to be attached to the email
+
 ├── credentials.json     # OAuth2 credentials file
+
 ├── message.txt          # Text file containing the email body
+
 ├── mailing_client.py     # Main script for the mailing client
+
 └── token.json           # Token file to store user credentials
+
+##Code Explanation
+
+1. `authenticate_gmail()`
+
+   **Purpose**: Authenticates the user using **OAuth2** and returns a Gmail API service instance.
+   
+   **Details**:
+   - Checks if a `token.json` file exists to store user credentials and avoid re-authenticating every time.
+   - If credentials are missing or expired, it refreshes them or re-authenticates using a web **OAuth** flow.
+   - Saves credentials for future use.
+
+   **Cybersecurity Consideration**: **OAuth2** ensures secure, token-based authentication for accessing user emails.
+
+2. `is_valid_email(email)`
+
+   **Purpose**: Validates the email address format to ensure it is correctly structured.
+
+   **Details**:
+   - Uses a **regular expression (regex)** to match standard email patterns.
+
+   **Cybersecurity Consideration**: **Input validation** ensures only valid email addresses are processed, preventing malformed data from being submitted.
+
+3. `contains_malicious_content(message_text)`
+
+   **Purpose**: Scans email body for potentially malicious content, such as **URLs** or suspicious functions.
+
+   **Details**:
+   - Uses **regex patterns** to flag **malicious URLs** and dangerous code snippets.
+
+   **Cybersecurity Consideration**: **Content filtering** helps prevent phishing attacks and **code injection** vulnerabilities.
+
+4. `create_message(sender, to, subject, message_text)`
+
+   **Purpose**: Creates an email message, attaches files, and encodes it for sending via Gmail.
+
+   **Details**:
+   - Reads the body of the email from a `message.txt` file.
+   - **Sanitizes** any HTML content using the **bleach** library, allowing only basic formatting tags (e.g., `<b>`, `<i>`, `<a>`).
+   - Attaches a file if it exists.
+   - Converts the email into a **raw base64 encoded string** for sending via the Gmail API.
+
+   **Cybersecurity Consideration**:
+   - **HTML Sanitization**: Prevents **Cross-Site Scripting (XSS)** by sanitizing HTML content.
+   - **Attachment Handling**: Avoids attaching **malicious files** by checking for file existence.
+
+5. `send_message(service, sender, to, subject)`
+
+   **Purpose**: Sends the created email message using the Gmail API.
+
+   **Details**:
+   - Validates both the **sender's** and **recipient’s** email addresses.
+   - Sends the email if all checks pass and the message creation is successful.
+
+   **Cybersecurity Consideration**: **Error handling** captures and logs any issues during the sending process, providing detailed logs for troubleshooting.
+
