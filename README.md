@@ -100,6 +100,13 @@ The email body is scanned for malicious URLs or potentially dangerous code (like
    **Cybersecurity Consideration**:
    - **Error handling**: captures and logs any issues during the sending process, providing detailed logs for troubleshooting.
 
+
+![OAuth Screen](images/oauth_screenshot.png)  
+
+![Received Email](images/received_email_screenshot1.png)
+
+![Sender and reciever]((images/received_email_screenshot2.png))  
+
 ## Skills
 
 **Skills** gained from this project include `Python programming`, `OAuth2 authentication`, `Gmail API integration`, `cybersecurity practices` (`error handling`, `logging`, `input validation`, `HTML sanitization`, `content filtering`), and `networking protocols` for secure email communication.
